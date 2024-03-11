@@ -8,7 +8,6 @@ def minmax(t):
     for i in range(0, n - 1, 2):
         if t[i] > t[i + 1]:
             mx = t[i]
-
             mn = t[i + 1]
         else:
             mx = t[i + 1]
