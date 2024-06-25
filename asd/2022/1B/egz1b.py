@@ -11,14 +11,15 @@ def planets( D, C, T, E ):
         F[j][0] = F[0][0] + p
     for i in range(1, n):
         d = D[i] - D[i - 1]
-        F[i][0] = min(F[i][0], F[i - 1][d])
+        if d <= E:
+            F[i][0] = min(F[i][0], F[i - 1][d])
         for j in range(1, E + 1 - d):
             F[i][j] = F[i - 1][j + d]
         for j in range(1, E + 1):
             F[i][j] = min(F[i][j], F[i][j - 1] + C[i])
         j, p = T[i]
         if j > i:
-            F[j][0] = F[i][0] + p
+            F[j][0] = min(F[j][0], F[i][0] + p)
     return min(F[-1])
 
 # zmien all_tests na True zeby uruchomic wszystkie testy
