@@ -1,5 +1,5 @@
 from egz2atesty import runtests
-from math import log2
+from math import log2, ceil
 
 
 def left(i): return 2 * i + 1
@@ -25,7 +25,7 @@ def tree_insert(tree, limit, val, i=0):
 
 def coal( A, T ):
     n = len(A)
-    containers = 2**(int(log2(n)) + 1)
+    containers = 2**ceil(log2(n))
     tree = [0] * (2 * containers - 1)
     for a in A[:(n - 1)]:
         tree_insert(tree, T, a)
