@@ -39,4 +39,33 @@ def robot(L, A, B):
     return None
 
 
-runtests( robot )
+# runtests( robot )
+
+
+def MergeSort(A):
+    n=len(A)
+    if n>1:
+        i=n//2
+        L=A[:i]
+        R=A[i:]
+        MergeSort(L)
+        MergeSort(R)
+        j=k=0
+        while j<i and k<n-i:
+            if L[j][1]<=R[k][1]:
+                A[j+k]=L[j]
+                j+=1
+            else:
+                A[j+k]=R[k]
+                k+=1
+        while j<i:
+            A[j+k]=L[j]
+            j+=1
+        while k<n-i:
+            A[j+k]=R[k]
+            k+=1
+
+
+A = [(1, 1),(6, 6) ,(43, 43), (-324, -324)]
+MergeSort(A)
+print(A)

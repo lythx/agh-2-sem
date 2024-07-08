@@ -20,5 +20,25 @@ def projects(n, L):
 
     return max(d)
 
+def projects(n, L):
+    G = [[] for _ in range(n)]
+    for u, v in L:
+        G[u].append(v)
+    n = len(G)
+    d = [-1] * n
+    stack = []
+    def toposort(u):
+        for v in G[u]:
+            toposort(v)
+        stack.append(u)
+
+    for u in range(n):
+        if d[u] == -1:
+            toposort(u)
+
+    def dfs():
+
+    return max(d)
+
 # zmien all_tests na True zeby uruchomic wszystkie testy
 runtests( projects, all_tests = True )
